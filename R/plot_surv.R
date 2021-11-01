@@ -234,7 +234,7 @@ ggplot(plot_all,
 
 ggsave(file = "output/figures/m_surv_coef.png",
        dpi = 300, 
-       height = 8, 
+       height = 3.5, 
        width = 12)
 
 # produce numbers reported in text

@@ -291,15 +291,6 @@ traceplot(fit[[2]], 3, pars = "beta")
 traceplot(fit[[3]], 3, pars = "beta")
 traceplot(fit[[4]], 3, pars = "beta")
 
-png("output/figures/badsigma.png", 
-    res = 250, 
-    width = 2000, 
-    height = 1400)
-
-traceplot(fit[[4]], pars = "sigma")
-
-dev.off()
-
 traceplot(fit[[1]], 3, pars = "alpha")
 traceplot(fit[[2]], 3, pars = "alpha")
 traceplot(fit[[3]], 3, pars = "alpha")
@@ -811,11 +802,6 @@ plot_all$term <- factor(plot_all$term, levels = c("difference", "education", "we
 plot_all$model <- factor(plot_all$model)
 plot_all$model <- factor(plot_all$model, levels = c("realized gap", "divergence, long", "divergence, short"))
 
-png("output/figures/m_sad_coef.png", 
-    res = 250, 
-    height = 1800, 
-    width = 3000)
-
 ggplot(plot_all, 
        aes(x = term, 
            y = est, 
@@ -844,7 +830,10 @@ ggplot(plot_all,
         legend.title = element_blank(), 
         legend.position = "bottom")
 
-dev.off()
+ggsave(file = "output/figures/m_sad_coef.png",
+       dpi = 300, 
+       height = 8, 
+       width = 12)
 
 # Coastal site:
 # For women, as the divergence between actual and ideal increases, mental health worsens
