@@ -3,6 +3,7 @@
 dir.create("output/")
 dir.create("output/tables/")
 dir.create("output/figures/")
+dir.create("stanfits/")
 
 # load packages
 
