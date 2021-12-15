@@ -1,5 +1,9 @@
 # run all scripts to fit models and produce figures and tables
 
+dir.create("output/")
+dir.create("output/tables/")
+dir.create("output/figures/")
+
 # load packages
 
 library(rethinking)
