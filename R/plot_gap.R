@@ -89,7 +89,7 @@ for (i in 1:12) {
   
   for (s in 1:2) {
     tmp <- quantile(post$theta[, s, ], c(0.5, 0.05, 0.95))
-    tmp <- round(tmp, 2)
+    tmp <- round(tmp, 1)
     tmp <- paste0(tmp, collapse = c(""), sep = c(" (", ", ", ")")) 
     sum_sex[[s]] <- tmp
   }
@@ -103,12 +103,12 @@ sum_marr <- do.call(rbind, sum[9:12])
 
 sum <- cbind(sum_long, sum_short, sum_marr)
 
-rownames(sum) <- c("PC (F)", "PC (M)", 
-                   "WL (F)", "WL (M)",
-                   "WH (F)", "WH (M)",
-                   "IH (F)", "IH (M)")
+rownames(sum) <- c("Coastal (F)", "Coastal (M)", 
+                   "Lowland (F)", "Lowland (M)",
+                   "Highland (F)", "Highland (M)",
+                   "Altiplano (F)", "Altiplano (M)")
 
-colnames(sum) <- c("long", "short", "married")
+colnames(sum) <- c("long-term (years)", "short-term (years)", "married (years)")
 
 print(xtable(sum), 
       file = "output/tables/m_gap_means.txt",
