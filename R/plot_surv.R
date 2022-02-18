@@ -207,7 +207,7 @@ plot_all <- rbind(plot_real, plot_long, plot_short)
 ggplot(plot_all, 
        aes(x = model, 
            y = est, 
-           color = sex)) +
+           color = sex)) + 
   
   coord_flip() +
   
@@ -221,16 +221,18 @@ ggplot(plot_all,
   geom_point(position = position_dodge(width = 0.35),size=2) +
 
    scale_color_manual(values = c("women" = "turquoise4",
-                                "men" = "goldenrod3"))+
+                                "men" = "goldenrod3")) +
   
   theme(strip.text.x = element_text(size = 14, face = "bold"),
         strip.text.y = element_text(size = 14, face = "bold"), 
-        axis.text = element_text(size = 12),
-        axis.title = element_blank(), 
+        axis.text = element_text(size = 12), 
         legend.key.size = unit(1, "cm"), 
         legend.text = element_text(size = 12), 
         legend.title = element_blank(), 
-        legend.position = "bottom")
+        legend.position = "bottom") + 
+  
+  xlab("") + 
+  ylab("estimated parameter value (log odds)")
 
 ggsave(file = "output/figures/m_surv_coef.png",
        dpi = 300, 

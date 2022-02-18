@@ -824,11 +824,13 @@ ggplot(plot_all,
   theme(strip.text.x = element_text(size = 14, face = "bold"),
         strip.text.y = element_text(size = 14, face = "bold"), 
         axis.text = element_text(size = 12),
-        axis.title = element_blank(), 
         legend.key.size = unit(1, "cm"), 
         legend.text = element_text(size = 12), 
         legend.title = element_blank(), 
-        legend.position = "bottom")
+        legend.position = "bottom") + 
+  
+  xlab("") + 
+  ylab("estimated parameter value (log odds)")
 
 ggsave(file = "output/figures/m_sad_coef.png",
        dpi = 300, 
